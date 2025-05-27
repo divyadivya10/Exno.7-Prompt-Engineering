@@ -1,168 +1,60 @@
 # Exno.7-Prompt-Engineering
-### Date:
-### Register no.212222040040
-## Aim: 
+# Date:
+# Register no.212222040040
+# Aim: 
 To Develop a prompt-based application tailored to their personal needs, fostering creativity and practical problem-solving skills while leveraging the capabilities of large language models.
-## Algorithm: 
+# Algorithm: 
 Develop a prompt-based application using ChatGPT - To demonstrate how to create a prompt-based application to organize daily tasks, showing the progression from simple to more advanced prompt designs and their corresponding outputs.
 
-### 1. Define the Scenario and Use Case
-#### Scenario:
-A student or professional wants a lightweight, personalized digital assistant powered by ChatGPT to manage daily activities, from to-do lists to time-blocking and prioritization.
+Step 1: Basic Task Organizer (Zero-shot Prompting)
+```
+def basic_prompt(task_list):
+    prompt = f"Here is my task list: {task_list}. Organize it for me."
+    return chat_with_gpt(prompt)
+```
+Step 2: Improved Prompt with Instructions (Direct Prompting)
+```
+def direct_instruction_prompt(task_list):
+    prompt = f"""I have these tasks today: {task_list}
+Please:
+1. Categorize them into 'Urgent', 'Important', and 'Optional'
+2. Sort them by time or priority
+3. Give a short motivational tip"""
+    return chat_with_gpt(prompt)
+```
+Step 3: Persona-Based Prompting (Friendly Coach)
+```
+def role_based_prompt(task_list):
+   prompt = f"""You are my personal productivity coach.
+Here are my tasks: {task_list}
+Please help me plan the day with priorities and encouragement."""
+   return chat_with_gpt(prompt)
+```
+Step 4: Chain-of-Thought Prompting
+```
+def chain_of_thought_prompt(task_list):
+    prompt = f"""Let's break this down step by step.
+I have these tasks: {task_list}
+First, identify the most time-sensitive tasks. Then, group similar tasks together.
+Finally, suggest a schedule with breaks and tips to stay focused."""
+    return chat_with_gpt(prompt)
+```
+Step 5: Prompt with User Preferences (Advanced Customization)
+```
+def personalized_prompt(task_list, wake_time, energy_levels):
+   prompt = f"""I wake up at {wake_time}, and I feel more energetic in the {energy_levels}.
+Here's my task list: {task_list}
+Please generate a detailed, energy-aware day plan with task priorities and relaxation slots."""
+   return chat_with_gpt(prompt)
+```
+# Result: 
+This application demonstrates a clear progression in prompt complexity and output quality, enabling users to:
+
+Organize daily tasks better
+
+Learn prompt engineering by example
+
+Develop creative and practical problem-solving strategies using LLMs
+
+The Prompt is executed successfully.
 
-#### Target User: 
-Individuals seeking daily structure, time management, or habit tracking.
-
-#### Primary Objectives:
-
-1. Encourage consistent task tracking
-
-2. Improve time utilization
-
-3. Adapt to personal task patterns using prompt evolution
-
-### 2. Prompt Patterns for Design Aspects
-#### A. Idea Generation Prompts
-Prompt: “What features should a ChatGPT-based daily task manager have?”
-
-Brainstormed Features:
-
-Add/view/edit/delete tasks via natural language
-
-Prioritize tasks using urgency/importance
-
-Suggest optimal time slots for tasks
-
-Generate summaries and progress updates
-
-#### B. Persona and Context Prompts
-#### Prompt: “Act as a personal productivity coach who is friendly, motivational, and non-intrusive.”
-
-Style Outcome:
-
-Responses are supportive: “Hey! Let’s tackle the day together. What’s your first task?”
-
-Avoids pressure, focuses on encouragement and personalization
-
-#### C. Exploratory Prompts
-#### Prompt: “List common personal productivity methods and how they can be incorporated into a prompt-based system.”
-
-Incorporated Methods:
-
-Eisenhower Matrix: Classify tasks by importance/urgency
-
-Pomodoro Technique: Suggest time blocks with breaks
-
-SMART Goals: Help convert vague goals into actionable ones
-
-#### D. Refinement Prompts
-#### Prompt: “Refine the response to give users time estimates and suggest alternatives if time is short.”
-
-Refined Interaction:
-
-“Task: Finish project report – Est. Time: 2 hours. Don’t have 2 hours? Try outlining it first (20 mins).”
-
-#### E. Scenario Testing Prompts
-#### Prompt: “Simulate a user having only 4 hours and 6 tasks. How should the assistant respond?”
-
-ChatGPT Output:
-
-Sorts tasks by impact and time
-
-Suggests deferrals or delegations
-
-Outputs: “Focus on Task A and B (2.5 hrs). Postpone C or D. You’ve got this!”
-
-#### F. Error Handling Prompts
-#### Prompt: “If a user enters conflicting tasks or incomplete info, how should the assistant clarify?”
-
-ChatGPT Behavior:
-
-“I noticed you scheduled two tasks at the same time. Would you like me to reschedule one?”
-
-“Can you tell me what ‘prepare’ refers to? Is it a meeting, assignment, or something else?”
-
-### 3. Implementation Plan
-#### Environment Setup:
-
-Python + Streamlit or Flask for UI
-
-OpenAI API integration with secret management
-
-#### Prompt Engine:
-
-Basic: Accepts task descriptions and outputs summaries
-
-Advanced: Custom prompt templates using daily logs, time constraints, priorities
-
-#### Features:
-
-Task Entry (add_task(prompt))
-
-Task Sorting & Suggestions (sort_by_urgency(prompt))
-
-Motivation/Check-in Prompt Generator (generate_checkin())
-
-#### Progressive Prompt Design:
-
-Simple: “Add these 3 tasks to my list.”
-
-Intermediate: “Schedule my day with 6 tasks and 5 hours available.”
-
-Advanced: “I’m low on energy. Which of my tasks can I do with minimal focus?”
-
-### 4. Evaluation and Feedback Collection
-#### Prompt: “How do users feel about the assistant after 7 days of use?”
-
-Collected via built-in feedback prompts like:
-
-“Was this suggestion helpful?”
-
-“Do you feel more organized today?”
-
-Feedback Summary:
-
-Liked: Tone, flexibility, intelligent rearrangement
-
-Wanted: Calendar integration, voice support
-
-
-### 5. Prototype/System Outline
-#### Backend:
-
-Python modules for ChatGPT prompt engineering
-
-SQLite or JSON file for task persistence
-
-#### Frontend Options:
-
-Streamlit dashboard with daily planner
-
-CLI for minimalist users
-
-python
-Today’s Plan:
-1. Write essay (1.5 hrs)
-2. Team call (30 mins) [11 AM]
-3. Grocery shopping (45 mins)
-Tip: Start with the essay to build momentum!
-
-
-### 6. User Testing Results and Improvement Plan
-#### Findings:
-
-80% of users felt “more in control” of their day
-
-65% preferred motivational tone over formal tone
-
-#### Next Iteration:
-
-Add calendar syncing (Google/Outlook)
-
-Implement voice assistant module (e.g., Whisper + ChatGPT)
-
-Daily goal tracking with gamification
-
-
-## Result: 
-The Prompt is executed successfully
